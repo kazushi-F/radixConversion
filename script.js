@@ -1,9 +1,3 @@
-function beforeSelect(){
-    //変換前の基数が選択されたら変換後基数の選択肢から変換前基数と同じ基数を削除する処理
-}
-function afterSelect(){
-    //変換後の基数が選択されたら変換前基数の選択肢から変換後基数と同じ基数を削除する処理
-}
 function start(){
     let before = document.getElementById("before").value;
     let after = parseInt(document.getElementById("after").value);
