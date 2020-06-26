@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ひたすら基数変換</title>
+    <script src="script.js"></script>
+    <style rel="styleseet" href="style.css"></style>
+</head>
+<body>
+    <p>
+    <select id="before" onchange="beforeSelect()">
+        <option value="2">２進数</option>
+        <option value="10">１０進数</option>
+        <option value="16">１６進数</option>
+    </select>
+    から
+    <select id="after" onchange="afterSelect()">
+        <option value="2">２進数</option>
+        <option value="10">１０進数</option>
+        <option value="16">１６進数</option>
+    </select>
+    へ変換
+    </p>
+    <p>
+    難易度
+    <select id="level">
+        <option value="1">Easy</option>
+        <option value="2">Normal</option>
+        <option value="3">Expart</option>
+    </select>
+    <button onclick="start()">出題開始</button>
+    </p>
+    <p id="test" style="display: none;"></p>
+    <p id="answerPar" style="display: none;">
+    解答
+    <input type="text" id="answer">
+    <button onclick="answer()">解答</button>
+    </p>
+    <p id="judge" style="display: none;"></p>
+</body>
+</html>
