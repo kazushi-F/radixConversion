@@ -9,13 +9,13 @@
 </head>
 <body>
     <p>
-    <select id="before" onchange="beforeSelect()">
+    <select id="before">
         <option value="2">２進数</option>
         <option value="10">１０進数</option>
         <option value="16">１６進数</option>
     </select>
     から
-    <select id="after" onchange="afterSelect()">
+    <select id="after">
         <option value="2">２進数</option>
         <option value="10">１０進数</option>
         <option value="16">１６進数</option>
@@ -29,14 +29,24 @@
         <option value="2">Normal</option>
         <option value="3">Expart</option>
     </select>
-    <button onclick="start()">出題開始</button>
+    制限時間
+    <select id="time">
+        <option value="1">１分</option>
+        <option value="2">２分</option>
+        <option value="3">３分</option>
+    </select>
+    <button id="queButton" onclick="start()">出題開始</button>
+    <div id="timeCount"></div>
     </p>
     <p id="test" style="display: none;"></p>
     <p id="answerPar" style="display: none;">
     解答
-    <input type="text" id="answer">
-    <button onclick="answer()">解答</button>
+    <input type="text" id="answer" onkeydown="keydownEnter()">
+    <button id="ansButton" onclick="answer()" onkeydown="keydownEnter()">解答</button>
     </p>
     <p id="judge" style="display: none;"></p>
+    <p id="countAll"></p>
+    <p id="countTrue"></p>
+    <p id="countPar"></p>
 </body>
 </html>
