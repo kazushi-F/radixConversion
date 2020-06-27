@@ -45,6 +45,7 @@ function countdown(){
 }
 function answer(){
     count++;
+    or = 1;
     let answer = String(document.getElementById("answer").value);
     let trueAns = document.getElementById("judge").innerText;
     let judge = "";
