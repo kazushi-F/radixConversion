@@ -18,6 +18,12 @@ function start(){
     timeCount--;
     timer1 = setInterval("countdown()", 1000);
     question();
+    if(after == 2){
+        console.log(level);
+        document.getElementById("answer").maxLength = Math.pow(2, (level + 1));
+    }else if(after == 16){
+        document.getElementById("answer").maxLength = Math.pow(2, (level - 1));
+    }
     document.getElementById("queButton").disabled = true;
     document.getElementById("countAll").style.display = "none";
     document.getElementById("countTrue").style.display = "none";
@@ -49,7 +55,7 @@ function answer(){
     let answer = String(document.getElementById("answer").value);
     let trueAns = document.getElementById("judge").innerText;
     let judge = "";
-    while(answer.length != trueAns.length){
+    while(answer.length < trueAns.length){
         answer = "0" + answer;
     }
     if(answer == trueAns){
