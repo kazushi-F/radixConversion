@@ -121,8 +121,9 @@ function create10(){
 function create16(){
     let digit = Math.floor((level - 1) / 4) + 1;
     let num = "";
-    for(let i = 0; i < digit; i++){
-        num = num + Math.floor(Math.random() * 16).toString(16);
+    num = create10().toString(16);
+    while(num != digit){
+        num = "0" + num;
     }
     return num;
 }
