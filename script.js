@@ -19,10 +19,9 @@ function start(){
     timer1 = setInterval("countdown()", 1000);
     question();
     if(after == 2){
-        console.log(level);
-        document.getElementById("answer").maxLength = Math.pow(2, (level + 1));
+        document.getElementById("answer").maxLength = level;
     }else if(after == 16){
-        document.getElementById("answer").maxLength = Math.pow(2, (level - 1));
+        document.getElementById("answer").maxLength = Math.floor((level - 1) / 4) + 1;
     }
     document.getElementById("queButton").disabled = true;
     document.getElementById("countAll").style.display = "none";
@@ -52,7 +51,7 @@ function countdown(){
 function answer(){
     count++;
     or = 1;
-    let answer = String(document.getElementById("answer").value);
+    let answer = String(document.getElementById("answer").value).toLowerCase();
     let trueAns = document.getElementById("judge").innerText;
     let judge = "";
     while(answer.length < trueAns.length){
@@ -72,11 +71,11 @@ function question(){
     let test = "";
     let trueAns = "";
     if(before == 2){
-        test = create2(level);
+        test = create2();
     }else if(before == 10){
-        test = create10(level);
+        test = create10();
     }else{
-        test = create16(level);
+        test = create16();
     }
     document.getElementById("test").innerText = "問題　" + test;
     document.getElementById("test").style.display = "block";
@@ -88,7 +87,7 @@ function question(){
         }else{
             trueAns = test.toString(2);
         }
-        while(trueAns.length != Math.pow(2, (level + 1))){
+        while(trueAns.length != level){
             trueAns = "0" + trueAns;
         }
     }else if(after == 10){
@@ -99,29 +98,28 @@ function question(){
         }else{
             trueAns = test.toString(16);
         }
-        while(trueAns.length != Math.pow(2, (level - 1))){
+        while(trueAns.length != (Math.floor((level - 1) / 4) + 1)){
             trueAns = "0" + trueAns;
         }
     }
     document.getElementById("judge").innerText = trueAns;
     document.getElementById("judge").style.display = "none";
 }
-function create2(level){
-    let digit = Math.pow(2, (level + 1));
+function create2(){
     let num = "";
-    for(let i = 0; i < digit; i++){
+    for(let i = 0; i < level; i++){
         num = num + Math.floor(Math.random() * 2);
     }
     return num;
 }
-function create10(level){
-    let max = Math.pow(16, Math.pow(2, (level - 1)));
+function create10(){
+    let max = Math.pow(2, level);
     let num = "";
     num = Math.floor(Math.random() * max);
     return num;
 }
-function create16(level){
-    let digit = Math.pow(2, (level - 1));
+function create16(){
+    let digit = Math.floor((level - 1) / 4) + 1;
     let num = "";
     for(let i = 0; i < digit; i++){
         num = num + Math.floor(Math.random() * 16).toString(16);
