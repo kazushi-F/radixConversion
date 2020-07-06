@@ -121,8 +121,8 @@ function create10(){
 function create16(){
     let digit = Math.floor((level - 1) / 4) + 1;
     let num = "";
-    num = parceInt(create10()).toString(16);
-    while(num != digit){
+    num = create10().toString(16);
+    while(num.length != digit){
         num = "0" + num;
     }
     return num;
