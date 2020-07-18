@@ -48,19 +48,19 @@
         <option value="2">２分</option>
         <option value="3">３分</option>
     </select>
-    <button id="queButton" onclick="start()">出題開始</button>
-    <div id="timeCount"></div>
+    <button id="startButton" onclick="start()">出題開始</button>
     </p>
-    <p id="test" style="display: none;"></p>
+    <p id="countTime" style="display: none;"></p>
+    <p id="question" style="display: none;"></p>
     <p id="answerPar" style="display: none;">
     解答
     <input type="text" id="answer" onkeydown="keydownEnter()">
-    <button id="ansButton" onclick="answer()" onkeydown="keydownEnter()">解答</button>
+    <button id="answerButton" onclick="answer()" onkeydown="keydownEnter()">解答</button>
     <button onclick="question()">次の問題</button>
     </p>
     <p id="judge" style="display: none;"></p>
-    <p id="countAll"></p>
-    <p id="countTrue"></p>
-    <p id="countPar"></p>
+    <p id="allCount" style="display: none;"></p>
+    <p id="trueCount" style="display: none;"></p>
+    <p id="percent" style="display: none;"></p>
 </body>
 </html>
